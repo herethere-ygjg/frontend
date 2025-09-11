@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import { Link } from 'react-router-dom'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,6 +13,7 @@ function App() {
         좋아요~~ <strong>{count}</strong>
         <br />
         <button onClick={() => { setCount(count + 1) }}> 좋아요 버튼</button>
+        <Link to="/app">test routring link</Link>
       </div>
     </>
   )
