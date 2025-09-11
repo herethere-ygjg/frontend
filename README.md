@@ -1,69 +1,105 @@
-# React + TypeScript + Vite
+# here-there Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+여기저기 서비스의 프론트엔드 애플리케이션입니다.  
+React + TypeScript + Vite 기반으로 구현되었고, **Feature-Sliced Design (FSD)** 아키텍처를 적용하여 전체 파일/폴더 구조와 책임을 명확히 구분했습니다.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔍 주요 기술 스택
 
-## Expanding the ESLint configuration
+| 항목 | 기술 |
+|---|---|
+| 프레임워크 | React |
+| 언어 | TypeScript |
+| 번들러 / 빌드 | Vite |
+| 린트 / 코드 스타일 | ESLint, TypeScript 설정 |
+| 아키텍처 패턴 | Feature-Sliced Design (FSD) |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🏗 아키텍처: Feature-Sliced Design (FSD)
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+FSD는 프론트엔드 애플리케이션을 **레이어(Layers)**, **슬라이스(Slices)**, **세그먼트(Segments)**로 나눠 규모가 커져도 유지보수성과 확장성을 확보하도록 돕는 구조입니다.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **레이어(Layers)**: 앱 전체에서 책임 수준이 다른 상위 구조  
+  예: `app`, `pages`, `widgets`, `features`, `entities`, `shared`  
+- **슬라이스(Slices)**: 레이어 내 특정 비즈니스 도메인 또는 기능 단위  
+- **세그먼트(Segments)**: 슬라이스 내부에서 기술적 역할/책임별 폴더 (`ui`, `api`, `model`, `lib`, `consts`)  
+- **Public API 패턴**: 각 슬라이스/세그먼트는 외부 접근 가능한 인터페이스(`index.ts`)를 정의하여 내부 구현 숨김
+
+이 구조 덕분에:
+
+- 새로운 기능 추가 용이  
+- 리팩토링 시 영향 범위 명확  
+- 팀원 간 코드 위치 예측 가능  
+
+---
+
+
+## 📂 폴더 구조 예시
+
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+/
+├ public/
+├ src/
+│ ├ app/
+│ │ ├ providers/
+│ │ ├ routes/
+│ │ └ App.tsx
+│ ├ pages/
+│ │ ├ Home/
+│ │ │ ├ ui/
+│ │ │ ├ api/
+│ │ │ ├ model/
+│ │ │ └ index.tsx
+│ │ └ SomeOtherPage/
+│ ├ widgets/
+│ ├ features/
+│ ├ entities/
+│ └ shared/
+│ ├ ui/
+│ ├ lib/
+│ ├ api/
+│ └ consts/
+├ index.html
+├ package.json
+├ tsconfig.json
+├ vite.config.ts
+├ eslint.config.js
+└ 기타 설정 파일
 ```
+---
+
+## 🚀 시작 및 개발 가이드
+
+### 개발 환경 세팅
+
+1. 레포지토리 클론  
+```bash
+git clone https://github.com/herethere-ygjg/frontend.git
+ ```
+
+2. 의존성 설치
+
+  ```
+  npm install
+  ```
+
+3. 개발 서버 실행
+  
+  ```
+  npm run dev
+  ```
+
+4. 빌드
+  
+  ```
+  npm run build
+  ```
+
+**코드 규칙**
+
+- 코드 스타일: ESLint + TypeScript 설정 사용
+- FSD 계층/슬라이스/세그먼트 규칙 준수
+- 일반 유틸, 재사용 UI 요소 등은 shared 레이어에 위치
+
