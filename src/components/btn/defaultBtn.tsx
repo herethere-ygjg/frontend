@@ -13,9 +13,9 @@ const DefaultBtn = ({
         <button
             type={type}
             onClick={onClick}
-            className={`w-full max-w-[40vw] py-4 px-3 rounded-full bg-[#2F8F64] ${className}`}
+            className={`w-full py-4 px-3 rounded-full bg-[#2F8F64] ${className}`}
         >
-            <p className="text-[1.2rem] text-white font-semibold">{text}</p>
+            <p className="text-[1rem] text-white font-medium">{text}</p>
         </button>
     )
 }
