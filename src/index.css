@@ -5,7 +5,7 @@ body, html{
 }
 
 *{
-  color: #1C1C1C;
+  /* color: #1C1C1C; */
   font-family: "Noto Sans KR", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
