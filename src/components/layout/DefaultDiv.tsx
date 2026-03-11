@@ -3,13 +3,14 @@ import type { ReactNode } from "react";
 interface DefaultDivProps {
   children: ReactNode
   isBackgroundColor?: boolean
+  className? : string
 }
 
 
-const DefaultDiv = ({children , isBackgroundColor = false} : DefaultDivProps) =>{
+const DefaultDiv = ({children , isBackgroundColor = false, className = ""} : DefaultDivProps) =>{
     return(
         <div 
-            className={`w-full max-w-[32rem] mx-auto h-[100vh]`}
+            className={`w-full max-w-[32rem] mx-auto h-[100vh] ${className}`}
             style={{
                 background: isBackgroundColor ? 
                 "linear-gradient(180deg, #FEFEFE 16%, #a8e5d1a0 63%, #50cca377 93%, #10b9816b 100%)" : "auto",
