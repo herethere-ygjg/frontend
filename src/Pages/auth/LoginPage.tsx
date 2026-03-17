@@ -1,5 +1,8 @@
-import appleIcon from "../assets/apple.png";
-import kakaoIcon from "../assets/kakao.png";
+import appleIcon from "../../assets/apple.png";
+import kakaoIcon from "../../assets/kakao.png";
+import { useNavigate } from "react-router-dom";
+import DefaultBtn from "../../components/btn/defaultBtn";
+import DefaultInput from "../../components/input/DefaultInput";
 
 const socialButtons = [
     {
@@ -15,6 +18,8 @@ const socialButtons = [
 ];
 
 const LoginPage = () => {
+    const navigate = useNavigate();
+
     return (
         <main className="min-h-screen bg-gradient-to-b from-white via-[#fbfffd] to-[#eef9f5]">
             <section className="mx-auto flex min-h-screen w-full max-w-[430px] flex-col px-6 pt-24 pb-12">
@@ -26,45 +31,35 @@ const LoginPage = () => {
 
                 <form className="mt-15 flex flex-1 flex-col">
                     <div>
-                        <label
-                            htmlFor="login-id"
-                            className="block text-[15px] font-bold tracking-[-0.03em] text-[#666666]"
-                        >
-                            아이디
-                        </label>
-                        <input
+                        <DefaultInput
                             id="login-id"
                             type="text"
-                            placeholder="아이디를 입력해주세요."
-                            className="mt-7 w-full border-b border-[#d9d9d9] bg-transparent pb-5 text-[15px] text-[#4a4a4a] outline-none placeholder:text-[#c5c5c5]"
+                            label="아이디"
+                            placeholder="이메일을 입력해주세요."
                         />
                     </div>
 
-                    <div className="mt-10">
-                        <label
-                            htmlFor="login-password"
-                            className="block text-[15px] font-bold tracking-[-0.03em] text-[#666666]"
-                        >
-                            비밀번호
-                        </label>
-                        <input
+                    <div className="mt-8">
+                        <DefaultInput
                             id="login-password"
                             type="password"
+                            label="비밀번호"
                             placeholder="비밀번호를 입력해주세요."
-                            className="mt-7 w-full border-b border-[#d9d9d9] bg-transparent pb-5 text-[15px] text-[#4a4a4a] outline-none placeholder:text-[#c5c5c5]"
                         />
                     </div>
+
+                    <DefaultBtn
+                        text="로그인"
+                        className="mt-17"
+                    />
 
                     <button
                         type="button"
-                        className="mt-17 h-[55px] rounded-full bg-[#15996A] text-[15px] font-bold tracking-[-0.03em] text-white"
+                        onClick={() => navigate("/signup")}
+                        className="mt-5 self-end text-[14px] tracking-[-0.03em] text-[#a0a0a0]"
                     >
-                        로그인
-                    </button>
-
-                    <p className="mt-5 text-right text-[14px] tracking-[-0.03em] text-[#a0a0a0]">
                         아직 회원이 아니신가요?
-                    </p>
+                    </button>
 
                     <div className="mt-10">
                         <div className="flex items-center gap-4 text-[#9c9c9c]">

@@ -1,0 +1,71 @@
+@keyframes completion-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.72) translateY(26px);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.06) translateY(-4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes completion-draw {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) rotate(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes completion-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes completion-glow {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+.completion-glow {
+  animation: completion-glow 0.9s ease-out 0.08s both;
+}
+
+.completion-badge {
+  animation: completion-pop 0.75s cubic-bezier(0.2, 0.9, 0.2, 1.1) both;
+}
+
+.completion-check {
+  animation: completion-draw 0.45s ease-out 0.35s both;
+}
+
+.completion-title {
+  animation: completion-rise 0.55s ease-out 0.45s both;
+}
+
+.completion-copy {
+  animation: completion-rise 0.55s ease-out 0.62s both;
+}
+
+.completion-button {
+  animation: completion-rise 0.55s ease-out 0.82s both;
+}
