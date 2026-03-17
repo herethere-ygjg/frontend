@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import LoginPage from "../Pages/LoginPage";
 import LoadingPage from "../Pages/LoadingPage";
 
 interface RouteObject  {
@@ -8,7 +9,8 @@ interface RouteObject  {
 
 
 const authList : RouteObject[] = [
-    {path : "/", element : <LoadingPage /> }
+    {path : "/", element : <LoadingPage /> },
+    {path : "/login", element : <LoginPage /> }
 ];
 
 const folderList : RouteObject[] = [];

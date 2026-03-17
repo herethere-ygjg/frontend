@@ -1,6 +1,18 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 const LoadingPage = () => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const timeoutId = window.setTimeout(() => {
+            navigate("/login");
+        }, 2000);
+
+        return () => window.clearTimeout(timeoutId);
+    }, [navigate]);
+
     return (
         <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-white via-[#fbfffd] to-[#eef9f5]">
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[56vh] bg-[radial-gradient(circle_at_center,rgba(156,241,221,0.32)_0%,rgba(156,241,221,0)_68%)]" />
