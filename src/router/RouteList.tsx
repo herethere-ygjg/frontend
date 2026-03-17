@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-// import TestView from "../Pages/TestView";
+import LoadingPage from "../Pages/LoadingPage";
 
 interface RouteObject  {
     path : string, 
@@ -8,7 +8,7 @@ interface RouteObject  {
 
 
 const authList : RouteObject[] = [
-    // {path : "/", element : <TestView /> }
+    {path : "/", element : <LoadingPage /> }
 ];
 
 const folderList : RouteObject[] = [];
