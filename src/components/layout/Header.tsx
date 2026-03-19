@@ -1,5 +1,5 @@
 import { ChevronLeft } from "lucide-react"
-import type { ReactNode } from "react"
+import { useEffect, useState, type ReactNode } from "react"
 import { useNavigate } from "react-router-dom"
 
 interface HeaderProps {
@@ -11,14 +11,26 @@ interface HeaderProps {
 }
 
 const Header = ({ title, leftIcon, children, isBack = false, isTitleCenter = false }: HeaderProps) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const handleBack = () => {
     navigate(-1)
   }
 
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 30);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="w-full h-[50px] flex items-center justify-between px-6 py-4 border-gray-200 bg-[#F5F5F54a] relative">
+    <header className={`fixed top-0 z-50 w-full max-w-[32rem] h-[50px] flex items-center justify-between px-6 py-4 border-gray-200 ${isScrolled ? 'bg-white' : 'bg-[#F5F5F54a]'}`}>
       <div className="flex-1 flex items-center gap-2">
         {isBack && (
           <div className="flex items-center gap-2">

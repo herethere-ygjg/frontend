@@ -9,12 +9,12 @@ const DefaultInput = ({ label, error, ...props }: DefaultInputProps) => {
   return (
     <div className="w-full flex flex-col gap-2">
       {label && (
-        <label className="text-[1rem] font-medium text-gray-700">
+        <label htmlFor={props.id} className="text-[15px] font-bold tracking-[-0.03em] text-[#666666]">
           {label}
         </label>
       )}
 
-      <input className="w-full py-3 border-b border-[#E2E2E2] outline-none placeholder:text-[#B4B4B4] focus:border-gray-500 transition text-[0.9rem] text-[#1C1C1C]"
+      <input className="w-full border-b border-[#d9d9d9] bg-transparent py-5 text-[15px] text-[#4a4a4a] outline-none transition placeholder:text-[#c5c5c5] focus:border-[#8f8f8f]"
         {...props}
       />
 

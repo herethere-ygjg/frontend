@@ -26,12 +26,12 @@ const DefaultMain = ({
   isBack = false
 }: DefaultMainProps) => {
   return (
-    <DefaultDiv isBackgroundColor={isBgColor} className={className}>
+    <DefaultDiv isBackgroundColor={isBgColor} className={`flex flex-col ${className}`}>
       <Header title={title} leftIcon={leftIcon} isTitleCenter={isTitleCenter} isBack={isBack}>
         {rightSlot}
       </Header>
       
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 h-auto pt-[50px] pb-[80px] overflow-auto">{children}</main>
 
       <Footer />
     </DefaultDiv>
