@@ -1,4 +1,8 @@
 import type { ReactNode } from "react";
+import FolderView from "../Pages/folder/FolderView";
+import PlaceView from "../Pages/place/PlaceView";
+import DetailFolderView from "../Pages/folder/DetailFolderView";
+import DetailPlaceView from "../Pages/place/DetailPlaceView";
 import LoadingPage from "../Pages/LoadingPage";
 import LoginPage from "../Pages/auth/LoginPage";
 import SignupCompletePage from "../Pages/auth/SignupCompletePage";
@@ -19,7 +23,13 @@ const authList : RouteObject[] = [
     {path : "/signup/complete", element : <SignupCompletePage /> }
 ];
 
-const folderList : RouteObject[] = [];
+const folderList : RouteObject[] = [
+    { path: "/folders", element: <FolderView /> },
+    { path: "/folders/:folderId", element: <DetailFolderView /> },
+    { path: "/folders/:folderId/places", element: <PlaceView /> },
+    { path: "/places/:placeId", element: <DetailPlaceView /> },
+
+];
 
 const mapList : RouteObject[] = [];
 
@@ -30,5 +40,6 @@ export const RouterList = [
     ...authList,
     ...folderList,
     ...mapList,
-    ...shopList
+    ...shopList,
+    // {path : "/home" , element : <HomeView />}
 ];
