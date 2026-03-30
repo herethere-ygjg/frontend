@@ -9,7 +9,7 @@ const Footer = () => {
     location.pathname.startsWith(path)
 
   return (
-    <footer className="fixed bottom-0 left-0 w-full h-[80px] bg-white border-t border-gray-200 flex items-center justify-around">
+    <footer className="fixed z-[1000] bottom-0 left-0 w-full h-[80px] bg-white border-t border-gray-200 flex items-center justify-around">
       {NAV_ITEMS.map((item) => {
         const Icon = item.icon
         const active = isActive(item.path)
