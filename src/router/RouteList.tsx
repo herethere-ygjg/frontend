@@ -8,6 +8,9 @@ import LoginPage from "../Pages/auth/LoginPage";
 import SignupCompletePage from "../Pages/auth/SignupCompletePage";
 import SignupInterestPage from "../Pages/auth/SignupInterestPage";
 import SignupPage from "../Pages/auth/SignupPage";
+import HomeView from "../Pages/HomeView";
+import MapView from "../Pages/map/MapView";
+import AddPlaceView from "../Pages/folder/AddPlaceView";
 
 interface RouteObject  {
     path : string, 
@@ -28,10 +31,13 @@ const folderList : RouteObject[] = [
     { path: "/folders/:folderId", element: <DetailFolderView /> },
     { path: "/folders/:folderId/places", element: <PlaceView /> },
     { path: "/places/:placeId", element: <DetailPlaceView /> },
+    { path: "/place/add", element: <AddPlaceView/> },
 
 ];
 
-const mapList : RouteObject[] = [];
+const mapList : RouteObject[] = [
+    { path: "/map", element: <MapView /> },
+];
 
 const shopList : RouteObject[] = [];
 
@@ -41,5 +47,5 @@ export const RouterList = [
     ...folderList,
     ...mapList,
     ...shopList,
-    // {path : "/home" , element : <HomeView />}
+    {path : "/home" , element : <HomeView />}
 ];
