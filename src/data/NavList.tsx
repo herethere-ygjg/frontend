@@ -19,7 +19,7 @@ export const NAV_ITEMS = [
     icon: Users,
   },
   {
-    path: "/folder",
+    path: "/folders",
     icon: Folder,
   },
 ]
