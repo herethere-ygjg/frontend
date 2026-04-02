@@ -9,6 +9,7 @@ import { img } from "../../assets/img";
 import DefaultBtn from "../../components/btn/defaultBtn";
 import DelBtn from "../../components/btn/DelBtn";
 import BottomSheet from "../../components/modal/BottomSheet";
+import { PLACE_ITEMS } from "../../data/PlaceList";
 
 const PlaceView = () => {
   const param = useParams();
@@ -20,50 +21,7 @@ const PlaceView = () => {
 
 
   const [title, setTitle] = useState("여행일지");
-  const [placeList, setPlaceList] = useState<PlaceType[]>([
-    {
-      id: 1,
-      name: "미분당",
-      category: ["데이트", "바닐라라떼"],
-      content: "5분거리, 쌀국수 맛남",
-      rating: 3.5,
-      image_url: img.folderTestImg
-    },
-    {
-      id: 1,
-      name: "미분당",
-      category: ["데이트", "바닐라라떼"],
-      content: "5분거리, 쌀국수 맛남",
-      rating: 3.5,
-      image_url: img.folderTestImg
-    },
-    {
-      id: 1,
-      name: "미분당",
-      category: ["데이트", "바닐라라떼"],
-      content: "5분거리, 쌀국수 맛남",
-      rating: 3.5,
-      image_url: img.folderTestImg
-    },
-    {
-      id: 1,
-      name: "미분당",
-      category: ["데이트", "바닐라라떼"],
-      content: "5분거리, 쌀국수 맛남",
-      rating: 3.5,
-      image_url: img.folderTestImg
-    },
-    {
-      id: 1,
-      name: "미분당",
-      category: ["데이트", "바닐라라떼"],
-      content: "5분거리, 쌀국수 맛남",
-      rating: 3.5,
-      image_url: img.folderTestImg
-    },
-
-
-  ]);
+  const [placeList, setPlaceList] = useState<PlaceType[]>(PLACE_ITEMS);
 
 
 
@@ -80,7 +38,7 @@ const PlaceView = () => {
     return delPlaceType != null ?
       <IconBtn iconType="close" onClick={() => { setDelPlaceType(null) }} /> :
       <>
-        <IconBtn iconType="plus" onClick={() => {  }} />
+        <IconBtn iconType="plus" onClick={() => { navigate("/map", {state : "search"}) }} />
         <IconBtn iconType="setting" onClick={() => { setIsUpdatePlace(true) }} />
       </>
   }

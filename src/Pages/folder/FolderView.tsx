@@ -10,6 +10,7 @@ import BottomSheet from "../../components/modal/BottomSheet";
 import AddFolderForm from "./AddFolderForm";
 import DelBtn from "../../components/btn/DelBtn";
 import DefaultBtn from "../../components/btn/defaultBtn";
+import { FOLDER_ITEMS } from "../../data/FolderList";
 
 interface folderUpdateType {
   type: "delete" | "sell"
@@ -24,64 +25,7 @@ const FloderView = () => {
 
 
   const [selectFileter, setSelectFileter] = useState<String>("내폴더"); // 필터
-  const [folderList, setFloderList] = useState<FolderType[]>([
-    {
-      id: 1,
-      title: "여행 일지",
-      description: "폴더 간단 설명",
-      category: ["카페", "데이트", "놀거리"],
-      thumbnail_url: img.folderTestImg,
-      place_count: 8,
-      update_at: "26.03.11"
-    },
-    {
-      id: 1,
-      title: "여행 일지",
-      description: "폴더 간단 설명",
-      category: ["카페", "데이트", "놀거리"],
-      thumbnail_url: img.folderTestImg,
-      place_count: 8,
-      update_at: "26.03.11"
-    },
-    {
-      id: 1,
-      title: "여행 일지",
-      description: "폴더 간단 설명",
-      category: ["카페", "데이트", "놀거리"],
-      thumbnail_url: img.folderTestImg,
-      place_count: 8,
-      update_at: "26.03.11"
-    },
-    {
-      id: 1,
-      title: "여행 일지",
-      description: "폴더 간단 설명",
-      category: ["카페", "데이트", "놀거리"],
-      thumbnail_url: img.folderTestImg,
-      place_count: 8,
-      update_at: "26.03.11"
-    },
-    {
-      id: 1,
-      title: "여행 일지",
-      description: "폴더 간단 설명",
-      category: ["카페", "데이트", "놀거리"],
-      thumbnail_url: img.folderTestImg,
-      place_count: 8,
-      update_at: "26.03.11"
-    },
-    {
-      id: 1,
-      title: "여행 일지",
-      description: "폴더 간단 설명",
-      category: ["카페", "데이트", "놀거리"],
-      thumbnail_url: img.folderTestImg,
-      place_count: 8,
-      update_at: "26.03.11"
-    },
-
-
-  ]);
+  const [folderList, setFloderList] = useState<FolderType[]>(FOLDER_ITEMS);
 
 
   const filterList: { label: string }[] = [{ label: "내폴더" }, { label: "공유 중인 폴더" }, { label: "저장한 폴더" }];

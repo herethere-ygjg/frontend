@@ -1,6 +1,6 @@
 // folder JSON 타입
 export interface FolderType {
-  id: number
+  id?: number
   title: string
   description: string
   category: string[]
@@ -11,7 +11,7 @@ export interface FolderType {
 
 // place JSON 타입
 export interface PlaceType {
-  id: number
+  id?: number
   name: string
   category: string[]
   content: string
