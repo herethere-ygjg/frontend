@@ -1,4 +1,5 @@
 import { Folder } from "lucide-react"
+import { Link } from "react-router-dom"
 
 const CreateFolderCard = () => {
   return (
@@ -18,9 +19,9 @@ const CreateFolderCard = () => {
         <Folder size={28} />
       </div>
 
-      <button className="mt-4 w-full bg-white text-green-700 py-2 rounded-lg font-medium">
+      <Link to={"/folders"} className="block text-center mt-4 w-full bg-white text-green-700 py-2 rounded-lg font-medium">
         새 파일 만들기
-      </button>
+      </Link>
 
     </div>
   )
