@@ -2,12 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import SearchInput from "../../components/input/SearchInput";
 import DefaultMain from "../../components/layout/DafultMain";
 import axios from "axios";
-import {  useNavigate } from "react-router-dom";
+import {  useLocation, useNavigate } from "react-router-dom";
 
 
 
 const MapView = () => {
     const navigate  = useNavigate();
+  const location = useLocation();
+
   const [searchList, setSearchList] = useState<any[]>([]);
   const [searchInput, setSearchInput] = useState<string>("");
   const [isLoading, setIsLoading] = useState<Boolean>(false);
@@ -64,7 +66,7 @@ const MapView = () => {
   }
 
   return (
-    <DefaultMain title="지도">
+    <DefaultMain title={"장소 검색"} isBack={location.state} isTitleCenter={location.state}>
       <div className="px-5 py-3 flex flex-col min-h-full h-auto">
         <div className="sticky top-5 bg-white w-full">
           <SearchInput
