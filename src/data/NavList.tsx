@@ -10,12 +10,12 @@ export const NAV_ITEMS = [
     icon: Map,
   },
   {
-    path: "/cart",
+    path: "/shop",
     icon: ShoppingCart,
     center: true,
   },
   {
-    path: "/users",
+    path: "/follow",
     icon: Users,
   },
   {
