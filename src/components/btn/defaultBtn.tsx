@@ -5,7 +5,7 @@ const DefaultBtn = ({
     className = "",
 }: {
     text: string,
-    onClick?: () => void,
+    onClick?: (e? :any) => void,
     type?: "button" | "submit" | "reset",
     className?: string
 }) => {
